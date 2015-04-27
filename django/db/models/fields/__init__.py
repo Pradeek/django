@@ -1964,7 +1964,7 @@ class GenericIPAddressField(Field):
 
     def to_python(self, value):
         if value and not isinstance(value, six.string_types):
-            value = smart_text(value)
+            value = force_text(value)
         if value and ':' in value:
             return clean_ipv6_address(value,
                 self.unpack_ipv4, self.error_messages['invalid'])
